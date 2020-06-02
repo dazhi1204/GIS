@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1533px" height="61px" viewBox="0 0 1533 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>top/bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-7.18991616%" y1="0%" x2="100%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#47E0EA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#47E0EA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.65689064%" y1="22.3096216%" x2="98.9981442%" y2="22.3096216%" id="linearGradient-2">
+            <stop stop-color="#1A73B3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#1A72B2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.36154953%" y1="100%" x2="95.2095372%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#579DAA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#89F6F4" offset="23.0365692%"></stop>
+            <stop stop-color="#89F6F4" offset="73.540275%"></stop>
+            <stop stop-color="#89F6F4" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="96.9780352%" x2="0.988237971%" y2="96.9780352%" id="linearGradient-4">
+            <stop stop-color="#32637A" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6098BA" offset="29.0147874%"></stop>
+            <stop stop-color="#649DBC" offset="73.4573271%"></stop>
+            <stop stop-color="#316279" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-7.6%" y="-305.0%" width="115.2%" height="709.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="6.09933036" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="金库模型1" transform="translate(-194.000000, -37.000000)" fill-rule="nonzero">
+            <g id="标题" transform="translate(16.000000, 11.000000)">
+                <g id="Group-20" transform="translate(0.000000, 26.000000)">
+                    <g id="top/bg">
+                        <g id="Group-2">
+                            <polygon id="Path-4" fill="#3086C4" points="501.796013 33.2253196 465.56118 33.2253196 434 2 441.323141 2 453.861467 15.4351074 460.47757 15.4351074 466.672635 22.7250087 490.344213 22.7250087"></polygon>
+                            <polygon id="Path-5" fill="#4CEEF6" points="507.149557 43.3654965 507.149557 40.7804104 462.926788 40.7804104 423.341661 1 374.758246 1 373 3.05601947 422.116636 3.05601947 461.473239 43.3654965"></polygon>
+                            <polygon id="Path-6" fill="#1B77B8" points="363.745166 0 371.865947 0 348.654511 23.2114353 341 23.2114353"></polygon>
+                            <polygon id="Path-7" fill="url(#linearGradient-1)" points="374.176886 32 374.176886 34.4458996 46.5003092 34.4458996 46.5003092 32"></polygon>
+                            <polygon id="Path-11" fill="url(#linearGradient-2)" points="355.261176 -3.45783668e-29 333.49856 21.9166437 0.500309194 21.9166437 23.8136234 1.13686838e-13"></polygon>
+                        </g>
+                        <g id="Group-2" transform="translate(1635.000000, 22.000000) scale(-1, 1) translate(-1635.000000, -22.000000) translate(1381.000000, 0.000000)">
+                            <polygon id="Path-4" fill="#3086C4" points="501.796013 33.2253196 465.56118 33.2253196 434 2 441.323141 2 453.861467 15.4351074 460.47757 15.4351074 466.672635 22.7250087 490.344213 22.7250087"></polygon>
+                            <polygon id="Path-5" fill="#4CEEF6" points="507.149557 43.3654965 507.149557 40.7804104 462.926788 40.7804104 423.341661 1 374.758246 1 373 3.05601947 422.116636 3.05601947 461.473239 43.3654965"></polygon>
+                            <polygon id="Path-6" fill="#1B77B8" points="363.745166 0 371.865947 0 348.654511 23.2114353 341 23.2114353"></polygon>
+                            <polygon id="Path-7" fill="url(#linearGradient-1)" points="374.176886 32 374.176886 34.4458996 46.5003092 34.4458996 46.5003092 32"></polygon>
+                            <polygon id="Path-11" fill="url(#linearGradient-2)" points="355.261176 -3.45783668e-29 333.49856 21.9166437 0.500309194 21.9166437 23.8136234 1.13686838e-13"></polygon>
+                        </g>
+                        <g id="Group" transform="translate(488.000000, 17.000000)">
+                            <polygon id="Path-2" fill="url(#linearGradient-3)" points="0.776918846 2.27373675e-13 0.776918846 2.36279687 49.2288954 2.36279687 60.0938567 15.82706 105.112382 15.82706 114.361602 25.9419629 801.38595 25.9419629 811.226057 15.82706 855.030524 15.82706 866.245362 2.36279687 932.359377 2.36279687 932.359377 1.13686838e-13 865.203239 1.13686838e-13 853.367481 12.9709815 811.226057 12.9709815 799.882079 22.9957872 115.496826 22.9957872 106.21382 12.9709815 62.2839675 12.9709815 51.0248312 2.27373675e-13"></polygon>
+                            <polygon id="Path-3" fill="url(#linearGradient-4)" points="7.77691885 8 7.77691885 10.5339088 50.3695985 10.5339088 60.9459876 23.9777502 105.190691 23.9777502 112.782207 33.8411053 800.333443 33.8411053 811.183576 23.9777502 854.389598 23.9777502 865.986188 10.5339088 925.985711 10.5339088 925.985711 8 865.258372 8 852.920135 22.0922089 810.011307 22.0922089 800.333443 31.3216613 113.880688 31.3216613 106.579634 22.0922089 62.1635913 22.0922089 51.539553 8"></polygon>
+                            <polygon id="Rectangle" fill="#79D6DA" points="115.776919 37 149.776919 37 149.776919 39 115.776919 39"></polygon>
+                            <polygon id="Rectangle" fill="#254E68" points="175.776919 37 251.05675 37 251.05675 39 175.776919 39"></polygon>
+                            <polygon id="Rectangle" fill="#82E4E5" points="457 37 465.073367 37 465.073367 39 457 39"></polygon>
+                            <polygon id="Rectangle" fill="#82E4E5" points="758.322599 37 782.322599 37 782.322599 39 758.322599 39"></polygon>
+                            <polygon id="Rectangle" fill="#82E4E5" points="788.322599 37 796.322599 37 796.322599 39 788.322599 39"></polygon>
+                            <ellipse id="Oval" fill="#4EF2F5" filter="url(#filter-5)" cx="454" cy="26" rx="120" ry="3"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

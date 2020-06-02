@@ -1,0 +1,156 @@
+#app {
+  & > .content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+    background-image: url("../../assets/img/banner.png");
+    background-size: 100% 100%;
+  }
+}
+.content-box {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  .left {
+    height: 100%;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+//  overflow: auto;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+  }
+}
+.el-tabs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .el-tabs__content {
+    flex-grow: 1;
+    .el-tab-pane {
+      height: 100%;
+    }
+  }
+}
+
+
+.divider {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 8px 0;
+    background-color: #DCDFE6;
+    position: relative;
+}
+
+// 首页组件边框及整体
+.BlueHorn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 168, 255, 0.3);
+}
+.BlueHorn .lt,
+.BlueHorn .rt {
+  border-top: 2px solid #00a8ff;
+  top: -2px;
+}
+.BlueHorn .lb,
+.BlueHorn .rb {
+  border-bottom: 2px solid #00a8ff;
+  bottom: -2px;
+}
+.BlueHorn .rb,
+.BlueHorn .rt {
+  border-right: 2px solid #00a8ff;
+  right: -2px;
+}
+.BlueHorn .lt {
+  border-left: 2px solid #00a8ff;
+  left: -2px;
+}
+.BlueHorn .lb {
+  border-left: 2px solid #00a8ff;
+  left: -2px;
+}
+.BlueHorn .lb,
+.BlueHorn .lt,
+.BlueHorn .rb,
+.BlueHorn .rt {
+  width: .25rem;
+  height: .37rem;
+  position: absolute;
+}
+.BlueHorn {
+  & > .title {
+    float: left;
+    width: calc(100% - .1rem);
+    text-align: left;
+    font-size: .18rem;
+    color: #fff;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin: .05rem;
+    padding-left: .2rem;
+    background: rgb(3,30,119);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, rgba(0, 255, 255, 0),
+    rgba(0, 255, 255, 0.8) 15%, rgb(3,30,119) 80%,
+    rgb(3,30,119)) 1;
+    .iconfont {
+      color: rgb(76, 238, 246);
+      font-size: .20rem;
+    }
+    .control-btn {
+      vertical-align: text-top;
+      margin: 0 20px 15px;
+      .el-button {
+        padding: 3px 5px;
+      }
+    }
+    .setting {
+      float: right;
+      margin-right: .1rem;
+      cursor: pointer;
+    }
+  }
+  & > .item {
+    width: 100%;
+    height: calc(100% - 32px);
+    margin-top: 32px;
+    // background: red;
+    & > div {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// 下拉框等颜色
+.el-autocomplete-suggestion li {
+  color: #addcff !important;
+}
+.el-scrollbar, .el-picker-panel,.el-dropdown-menu,.el-range-input,.el-date-editor {
+  background: rgb(11,28,116) !important;
+  .el-select-dropdown__item, .el-date-table th,.el-date-picker__header-label,.available,.el-dropdown-menu__item,.time-select-item,.el-range-input {
+    color: #fff !important;
+  }
+  .hover, .selected,.el-dropdown-menu__item:hover,.time-select-item:hover {
+    background-color: rgb(0,33,142) !important;
+  }
+}
+.in-range div {
+  background-color: rgb(0,33,142) !important;
+}
+.el-month-table td div .cell {
+  color: #fff;
+}
+.popper__arrow::after {
+  border-bottom-color:rgb(11,28,116) !important;
+}
