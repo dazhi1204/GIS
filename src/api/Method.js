@@ -11,11 +11,11 @@ export const canvasMap = function(obj) {
 		//obj.maps.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 11);
 		var MorePol = [];
 		if (obj.spaceType == 23 && obj.dimen == 'space') {
-			MorePol =res.result.sceneList;
+			MorePol = res.result.sceneList;
 		}
-		
-		
-		if (obj.type == 2) {//扇区
+
+
+		if (obj.type == 2) { //栅格
 			if (list !== null) {
 				list.forEach(item => data.push({
 					geometry: {
@@ -27,15 +27,15 @@ export const canvasMap = function(obj) {
 					communityName: item.communityName,
 					eci: item.eci,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
 					index: item.index / res.result.indexMax,
 					zero: false,
 					//count: item.index/res.result.indexMax,
 					count: 30 * Math.random(),
 					maptype: 2
 				}));
-				
+
 			}
 
 			if (listZero !== null) {
@@ -49,9 +49,9 @@ export const canvasMap = function(obj) {
 					communityName: item.communityName,
 					eci: item.eci,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
-					index:-1,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
+					index: -1,
 					zero: true,
 					//count: item.index/res.result.indexMax,
 					count: 30 * Math.random(),
@@ -59,7 +59,7 @@ export const canvasMap = function(obj) {
 				}))
 			}
 
-		} else if (obj.type == 4) {//飞线
+		} else if (obj.type == 4) { //飞线
 			if (list !== null) {
 				list.forEach(item => data.push({
 					geometry: {
@@ -76,10 +76,10 @@ export const canvasMap = function(obj) {
 					cgi: item.cgi,
 					flylineType: item.flylineType,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
-					longitude:item.longitude,
-					latitude:item.latitude,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
+					longitude: item.longitude,
+					latitude: item.latitude,
 					index: item.index / res.result.indexMax,
 					zero: false,
 					count: 30 * Math.random(),
@@ -102,8 +102,8 @@ export const canvasMap = function(obj) {
 					cgi: item.cgi,
 					flylineType: item.flylineType,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
 					index: -1,
 					zero: false,
 					count: 30 * Math.random(),
@@ -122,12 +122,12 @@ export const canvasMap = function(obj) {
 					communityName: item.communityName,
 					eci: item.eci,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
 					index: item.index / res.result.indexMax,
 					zero: false,
-					//count: item.index/res.result.indexMax,
-					count: 30 * Math.random(),
+					count: item.index,
+					//count: 30 * Math.random(),
 					maptype: 'more'
 
 				}));
@@ -143,12 +143,12 @@ export const canvasMap = function(obj) {
 					communityName: item.communityName,
 					eci: item.eci,
 					nettype: item.nettype,
-					lngBd:item.lngBd,
-					latBd:item.latBd,
+					lngBd: item.lngBd,
+					latBd: item.latBd,
 					index: -1,
 					zero: true,
-					//count: item.index/res.result.indexMax,
-					count: 30 * Math.random(),
+					count: item.index/res.result.indexMax,
+					//count: 30 * Math.random(),
 					maptype: 'more'
 				}))
 			}
@@ -156,21 +156,21 @@ export const canvasMap = function(obj) {
 		}
 		switch (obj.type) {
 			case 1:
-			var options = {
-				draw: 'petal',
-				size: 500,
-				mixBlendMode: 'normal',
-				unit: 'm',
-				fillStyle: 'blue',
-				methods: {
-					click: (item, event) => {
-						if (item && item !== null) {
-							this.clickmarker(item, event);
+				var options = {
+					draw: 'petal',
+					size: 500,
+					mixBlendMode: 'normal',
+					unit: 'm',
+					fillStyle: 'blue',
+					methods: {
+						click: (item, event) => {
+							if (item && item !== null) {
+								this.clickmarker(item, event);
+							}
 						}
 					}
 				}
-			}
-			break;
+				break;
 			case 2:
 				var options = {
 					draw: 'grid',
@@ -205,19 +205,22 @@ export const canvasMap = function(obj) {
 				break;
 			case 3:
 				var options = {
-					draw: 'heatmap',
-					size: 13, // 每个热力点半径大小
-					gradient: { // 热力图渐变色
+					size: 130,
+					gradient: {
 						0.25: "rgb(0,0,255)",
 						0.55: "rgb(0,255,0)",
 						0.85: "yellow",
 						1.0: "rgb(255,0,0)"
 					},
-					max: 100, // 最大权重值
+					max: 100,
+					// range: [0, 100], // 过滤显示数据范围
+					// minOpacity: 0.5, // 热力图透明度
+					// maxOpacity: 1,
+					draw: 'heatmap'
 				}
 				break;
 			case 4:
-				var options= {
+				var options = {
 					methods: {
 						click: (item, event) => {
 							if (item && item !== null) {

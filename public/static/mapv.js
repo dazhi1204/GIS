@@ -1670,7 +1670,7 @@
 			var deg = e[o].deg
 			var colorStyle;
 			var params = e[o].index;
-			
+
 			if (params < 0) {
 				colorStyle = 'rgba(255, 255, 255, 0.7)'
 			} else if (0 <= params <= 0.1) {
@@ -1749,7 +1749,7 @@
 			f = {};
 		for (var y in g.forEach(function(t, e) {
 
-				var n = void 0 === t.index ? 1 : t.index,
+				var n = void 0 === t.count ? 1 : t.count,
 					i = Math.min(1, n / r).toFixed(2);
 				f[i] = f[i] || [], f[i].push(t)
 			}), f)
@@ -1760,18 +1760,20 @@
 						var n = t.geometry._coordinates || t.geometry.coordinates,
 							i = t.geometry.type;
 						if ("Point" === i) {
-							var o = void 0 === t.index ? 1 : t.index;
+							var o = void 0 === t.count ? 1 : t.count;
 							a.globalAlpha = o / r, a.drawImage(v, n[0] - p, n[1] - d)
 						} else if ("LineString" === i) {
-							o = void 0 === t.index ? 1 : t.index;
+							o = void 0 === t.count ? 1 : t.count;
 							a.globalAlpha = o / r, a.beginPath(), x.draw(a, t, s), a.stroke()
 						}
 					}
 				})
 			}
 	}
+	//热力图
 	var d = {
 			draw: function(t, e, n) {
+				
 				if (!(t.canvas.width <= 0 || t.canvas.height <= 0)) {
 					var i = n.strength || .3;
 					t.strokeStyle = "rgba(0,0,0," + i + ")";

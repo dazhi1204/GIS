@@ -410,6 +410,9 @@ export default {
 				var data = []; //图层数据
 				var list = res.data.result.eciList;
 				this.map.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
+				this.map2.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
+				this.map3.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
+				this.map4.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
 
 				list.forEach(item =>
 					data.push({
@@ -445,6 +448,9 @@ export default {
 					}
 				};
 				var mapvLayer = new mapv.baiduMapLayer(this.map, new mapv.DataSet(data), options);
+				var mapvLayer = new mapv.baiduMapLayer(this.map2, new mapv.DataSet(data), options);
+				var mapvLayer = new mapv.baiduMapLayer(this.map3, new mapv.DataSet(data), options);
+				var mapvLayer = new mapv.baiduMapLayer(this.map4, new mapv.DataSet(data), options);
 				this.DrawMap();
 			});
 		},
@@ -1234,7 +1240,7 @@ export default {
 									timeValue: this.time
 								},
 								business: {
-									indexId: obj.labels
+									indexId: obj.value
 								},
 								network: {
 									networkType: networkType,
@@ -1371,7 +1377,7 @@ export default {
 											eci: list[i].eci,
 											nettype: list[i].nettype,
 											index: list[i].index / res.result.indexMax,
-											count: 30 * Math.random(),
+											count: list[i].index,
 											maptype: 'more'
 										});
 									}

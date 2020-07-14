@@ -3,7 +3,7 @@
 		<div style="overflow: hidden;" class="wrap_div">
 			<div style="width: 73%;float: left;" class="div_one">
 				<div style="width: 20%;">
-					<el-select class="city" v-model="timeVal" placeholder="请选择时间维度">
+					<el-select class="city" v-model="timeVal" placeholder="请选择最小时间颗粒度">
 						<el-option v-for="item in TimeList" :key="item.value" :label="item.label" :value="item.value"></el-option>
 					</el-select>
 				</div>
@@ -109,19 +109,19 @@ export default {
 			TimeList: [
 				{
 					value: 1,
-					label: '月维度'
+					label: '1月粒度'
 				},
 				{
 					value: 2,
-					label: '天维度'
+					label: '1天粒粒度'
 				},
 				{
 					value: 3,
-					label: '小时维度'
+					label: '1小时粒度'
 				},
 				{
 					value: 4,
-					label: '15分钟维度'
+					label: '15分钟粒度'
 				}
 			],
 			day: '', //日期

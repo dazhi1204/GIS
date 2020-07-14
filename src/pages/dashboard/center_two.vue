@@ -319,7 +319,7 @@ export default {
 				var data = []; //图层数据
 				var list = res.data.result.eciList;
 				this.map.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
-
+				this.map2.centerAndZoom(new BMap.Point(list[0].lngBd, list[0].latBd), 8);
 				list.forEach(item =>
 					data.push({
 						geometry: {
@@ -354,6 +354,7 @@ export default {
 					}
 				};
 				var mapvLayer = new mapv.baiduMapLayer(this.map, new mapv.DataSet(data), options);
+				var mapvLayer = new mapv.baiduMapLayer(this.map2, new mapv.DataSet(data), options);
 				this.DrawMap();
 			});
 		},
@@ -984,7 +985,7 @@ export default {
 									timeValue: this.time
 								},
 								business: {
-									indexId: obj.labels
+									indexId: obj.value
 								},
 								network: {
 									networkType: networkType,
@@ -1100,7 +1101,7 @@ export default {
 											eci: list[i].eci,
 											nettype: list[i].nettype,
 											index: list[i].index / res.result.indexMax,
-											count: 30 * Math.random(),
+											count: list[i].index,
 											maptype: 'more'
 										});
 									}
@@ -1192,14 +1193,6 @@ export default {
 									}
 									var options = {
 										draw: 'intensity',
-										max: 100, // 最大阈值
-										min: 0, // 最小阈值
-										gradient: {
-											// 显示的颜色渐变范围
-											0: 'blue',
-											0.5: 'yellow',
-											1: 'red'
-										},
 										methods: {
 											click: (item, event) => {
 												if (item && item !== null) {

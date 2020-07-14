@@ -4,10 +4,11 @@
     <div class="rt"></div>
     <div class="rb"></div>
     <div class="lb"></div>
-    <div class="title">分场景指标天级趋势图指标
+    <div class="title">{{title}}
       <!--<i class="setting iconfont iconjiekou"></i>-->
     </div>
     <div class="item">
+      <span class="y-name">{{yname || pname}}</span>
       <div ref="chart"></div>
     </div>
   </div>
@@ -30,20 +31,40 @@ export default {
       min: '',
       max: '',
       max1: '',
-      min1: ''
+      min1: '',
+      yname: '',
+	  title:'分场景指标天级趋势图'
     }
   },
   computed: {
-    ...mapGetters(['QuotaListName','SequotaName','pname','SeQuota','QuotaList', 'spaceType', 'spaceCheckId', 'networkType', 'cityId', 'timeTypeId', 'time','normName', 'indexIds']),
+    ...mapGetters(['QuotaListName', 'SequotaName', 'pname', 'SeQuota', 'QuotaList', 'spaceType', 'spaceCheckId', 'networkType', 'cityId', 'timeTypeId', 'time', 'normName', 'indexIds']),
     dataRange () {
-      const { SeQuota, QuotaList, spaceType, spaceCheckId, networkType, cityId, timeTypeId, time,normName, indexIds } = this
-      return { SeQuota, QuotaList, spaceType, spaceCheckId, networkType, cityId, time,normName, indexIds }
+      const { SeQuota, QuotaList, spaceType, spaceCheckId, networkType, cityId, timeTypeId, time, normName, indexIds } = this
+      return { SeQuota, QuotaList, spaceType, spaceCheckId, networkType, cityId, time, normName, indexIds }
     }
   },
   watch: {
     dataRange (val) {
       this.initData()
-    }
+    },
+	timeTypeId(val){
+		switch (val){
+			case 1:
+				this.title = "分场景指标月级趋势图"
+				break;
+			case 2:
+				this.title = "分场景指标月级趋势图"
+				break;
+			case 3:
+				this.title = "分场景指标天级趋势图"
+				break;
+			case 4:
+				this.title = "分场景指标天级趋势图"
+				break;
+			default:
+				break;
+		}
+	}
     // spaceType (val) {
     //   this.initData()
     // },
@@ -139,7 +160,6 @@ export default {
         ],
         yAxis: [
           {
-            name: this.pname,
             nameGap: 5,
             // max: this.result.xArray.length - 1,
             nameTextStyle: {
@@ -196,15 +216,15 @@ export default {
               // 隐藏Y轴轴线
               show: false,
               lineStyle: {
-                  color: '#528BB2'
+                color: '#528BB2'
               }
             }
           }
         ],
         series: this.seriesData
       }
-      if(this.SeQuota.length == 2 || this.QuotaList[1]) {
-        this.SeQuota.length == 2 ? options.yAxis[1].name = this.SequotaName[1].replace(/(.{7})/g,'$1\n') : options.yAxis[1].name = this.QuotaListName[1].replace(/(.{7})/g,'$1\n')
+      if (this.SeQuota.length == 2 || this.QuotaList[1]) {
+        this.yname = this.SeQuota.length == 2 ? this.SequotaName[1] : this.QuotaListName[1]
         options.yAxis[1].axisLine.show = true
         options.grid.right = 50
         options.legend.right = 100
@@ -218,57 +238,57 @@ export default {
       this.chart.setOption(options)
     },
     initData () {
-    	switch (this.timeTypeId){
-    		case 1:
-    			var Seltime = this.time;
-    			break;
-    		case 2:
-    			var Seltime = this.time;
-    			break;
-    		case 3:
-    			var Seltime = this.time.substring(0,10) +'\xa0'+ '00:00:00';
-    			break;
-    		case 4:
-    			var Seltime = this.time.substring(0,10) +'\xa0'+ '00:00:00';
-    			break;
-    		default:
-    			break;
+      switch (this.timeTypeId) {
+        case 1:
+          var Seltime = this.time;
+          break;
+        case 2:
+          var Seltime = this.time;
+          break;
+        case 3:
+          var Seltime = this.time.substring(0, 10) + '\xa0' + '00:00:00';
+          break;
+        case 4:
+          var Seltime = this.time.substring(0, 10) + '\xa0' + '00:00:00';
+          break;
+        default:
+          break;
       }
-      let indexIds = [this.indexIds] 
-      if(this.SeQuota.length == 2) {
-        indexIds = [this.indexIds, this.SeQuota[1]] 
+      let indexIds = [this.indexIds]
+      if (this.SeQuota.length == 2) {
+        indexIds = [this.indexIds, this.SeQuota[1]]
       } else if (this.QuotaList[1]) {
-        indexIds = [this.indexIds, this.QuotaList[1]] 
+        indexIds = [this.indexIds, this.QuotaList[1]]
       } else {
-        indexIds = [this.indexIds] 
+        indexIds = [this.indexIds]
       }
       let params = {
         "cityId": this.cityId,
         "earfcnTypeId": this.networkType,
         "typeId": this.spaceType,
         "timeType": this.timeTypeId,
-        "time":Seltime,
+        "time": Seltime,
         "sceneIds": this.spaceCheckId,
         "indexIds": indexIds
       }
       chartApi.getSceneDayTrend(params).then(res => {
-          if (res.code === 200) {
+        if (res.code === 200) {
           let data = res.result
           this.max = data.max
           this.min = data.min
           this.xArray = data.timeArray
-          if(this.SeQuota.length == 2 || this.QuotaList[1]){
+          if (this.SeQuota.length == 2 || this.QuotaList[1]) {
             this.max1 = data.maxr
             this.min1 = data.minr
             let leftLegend = []
             data.sceneArray.forEach((item, index) => {
-                  item= item +'(左)'
-                  leftLegend.push(item)
+              item = item + '(左)'
+              leftLegend.push(item)
             })
             let rightLegend = []
             data.sceneArray.forEach((item, index) => {
-                 item = item +'(右)'
-                 rightLegend.push(item)
+              item = item + '(右)'
+              rightLegend.push(item)
             })
             this.legendData = leftLegend.concat(rightLegend)
             // console.log(this.legendData,'++++++')
@@ -286,17 +306,17 @@ export default {
               })
             })
             data.dataArrayr.forEach((item, index) => {
-                let array = eval("(" + item + ")")
-                this.seriesData.push({
-                  symbol: 'none',
-                  name: rightLegend[index],
-                  type: 'line',
-                  barWidth: '20',
-                  smooth: true,
-                  yAxisIndex: 1,
-                  data: array.reverse()
-                })
-              }) 
+              let array = eval("(" + item + ")")
+              this.seriesData.push({
+                symbol: 'none',
+                name: rightLegend[index],
+                type: 'line',
+                barWidth: '20',
+                smooth: true,
+                yAxisIndex: 1,
+                data: array.reverse()
+              })
+            })
           } else {
             this.max1 = null
             this.min1 = null
@@ -359,7 +379,7 @@ export default {
         //       data: array.reverse()
         //     })
         //   })
-          
+
         // //  console.log(this.yArray)
         //   this.xArray = data.timeArray
         // } else {

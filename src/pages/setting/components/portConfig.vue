@@ -271,6 +271,7 @@ export default {
     },
     submit (formName) {
       this.$refs[formName].validate((valid) => {
+		   console.log(valid)
         if (valid && this.isNew) {
           portConfig.addLayerApi(this.apiData).then(res => {
             if (res.code === 200) {
@@ -290,6 +291,7 @@ export default {
           })
         } else if (valid && !this.isNew) {
           portConfig.editLayerApi(this.apiData).then(res => {
+			 
             if (res.code === 200) {
               this.$message({
                 message: res.massege,

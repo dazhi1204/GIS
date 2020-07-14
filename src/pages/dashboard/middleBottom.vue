@@ -4,7 +4,7 @@
     <div class="rt"></div>
     <div class="rb"></div>
     <div class="lb"></div>
-    <div class="title">时间趋势图
+    <div class="title">分{{networkName}}指标{{tiemType}}级趋势图
       <span style="float:right;">
         <span class="control-btn">
           <el-button type="primary"
@@ -17,6 +17,7 @@
       </span>
     </div>
     <div class="item">
+      <span class="y-name">{{yname || pname}}</span>
       <div ref="chart"></div>
     </div>
   </div>
@@ -44,7 +45,10 @@ export default {
       min1: '',
       // 定义加减初始值
       addNumber: 1,
-      minusNumber: -1
+      minusNumber: -1,
+      yname: '',
+      networkName: '频点',
+      tiemType: '15分钟'
       // maxNumber: 100
     }
   },
@@ -58,6 +62,13 @@ export default {
   watch: {
     dataRange (val) {
       this.initData()
+    },
+    timeTypeId (val) {
+      let arr = ['月', '天', '小时', '15分钟']
+      this.tiemType = arr[val - 1]
+    },
+    dimen (val) {
+      this.networkName = val == "network" ? '频点' : '场景'
     }
   },
   mounted () {
@@ -274,7 +285,6 @@ export default {
         ],
         yAxis: [
           {
-            name: this.pname,
             nameGap: 5,
             // max: this.result.xArray.length - 1,
             nameTextStyle: {
@@ -337,7 +347,7 @@ export default {
         series: this.seriesData
       }
       if (this.SeQuota.length == 2 || this.QuotaList[1]) {
-        this.SeQuota.length == 2 ? options.yAxis[1].name = this.SequotaName[1].replace(/(.{7})/g,'$1\n') : options.yAxis[1].name = this.QuotaListName[1].replace(/(.{7})/g,'$1\n')
+        this.yname = this.SeQuota.length == 2 ? this.SequotaName[1] : this.QuotaListName[1]
         options.yAxis[1].axisLine.show = true
         options.legend.right = 100
       } else {

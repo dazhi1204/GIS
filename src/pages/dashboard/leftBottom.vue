@@ -4,10 +4,11 @@
 		<div class="rt"></div>
 		<div class="rb"></div>
 		<div class="lb"></div>
-		<div class="title">分频点指标天级趋势图指标
+		<div class="title">{{title}}
 			<!--<i class="setting iconfont iconjiekou"></i>-->
     </div>
 		<div class="item">
+      <span class="y-name">{{yname || pname}}</span>
 			<div ref="chart"></div>
 		</div>
 	</div>
@@ -30,7 +31,9 @@ export default {
       max: '',
       mim: '',
       max1: '',
-      min1: ''
+      min1: '',
+      yname: '',
+	  title:'分频点指标天级趋势图指标'
     }
   },
   computed: {
@@ -43,7 +46,25 @@ export default {
   watch: {
     dataRange(val) {
       this.initData()
-    }
+    },
+	timeTypeId(val){
+		switch (val){
+			case 1:
+				this.title = "分频点指标月级趋势图指标"
+				break;
+			case 2:
+				this.title = "分频点指标月级趋势图指标"
+				break;
+			case 3:
+				this.title = "分频点指标天级趋势图指标"
+				break;
+			case 4:
+				this.title = "分频点指标天级趋势图指标"
+				break;
+			default:
+				break;
+		}
+	}
   },
   mounted () {
     this.initData()
@@ -120,7 +141,6 @@ export default {
         ],
         yAxis: [
           {
-            name: this.pname,
             nameGap: 5,
             // max: this.result.xArray.length - 1,
             nameTextStyle: {
@@ -184,7 +204,7 @@ export default {
         series: this.seriesData
       }
       if(this.SeQuota.length == 2 || this.QuotaList[1]) {
-        this.SeQuota.length == 2 ? options.yAxis[1].name = this.SequotaName[1].replace(/(.{7})/g,'$1\n') : options.yAxis[1].name = this.QuotaListName[1].replace(/(.{7})/g,'$1\n')
+        this.yname = this.SeQuota.length == 2 ? this.SequotaName[1] : this.QuotaListName[1]
         options.yAxis[1].axisLine.show = true
         options.grid.right = 50
         options.legend.right = 100

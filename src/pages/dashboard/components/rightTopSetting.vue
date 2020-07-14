@@ -90,7 +90,7 @@
 						<template slot="header" slot-scope="scope">
 							<el-checkbox-group v-model="checkKey" :max="16">
 								<el-checkbox
-									v-if="showCheck && item.label !== '时间' && item.label !== '频点' && item.label !== '场景' && item.label !== '小区名称'"
+									v-if="showCheck && !['时间','频点','场景','小区名称'].includes(item.label)"
 									style="margin-right:.1rem;"
 									:label="item.key"
 									@change="state => checkTarget(state, item, index)"
@@ -98,10 +98,10 @@
 									{{ item.label }}
 								</el-checkbox>
 							</el-checkbox-group>
-							<span v-if="showCheck && (item.label == '时间' || item.label == '频点' || item.label == '场景' || item.label == '小区名称')" style="color:white;">
+							<span v-if="showCheck && ['时间','频点','场景','小区名称'].includes(item.label)" style="color:white;">
 								{{ item.label }}
 							</span>
-							<div v-if="showCheck && item.label !== '时间' && item.label !== '频点' && item.label !== '场景' && item.label !== '小区名称'">
+							<div v-if="showCheck && !['时间','频点','场景','小区名称'].includes(item.label)">
 								<el-input v-model="item.val"></el-input>
 								<span style="margin-left:.05rem;margin-right:.05rem;">{{ thresholdLabel }}</span>
 								<el-input v-model="item.large"></el-input>
@@ -172,14 +172,18 @@ export default {
 		checkIndex(val) {
 			this.transformObj(val);
 		},
-		networkType(val) {
-			if (val == '11') {
-				this.networkTypeStr = '2G';
-			} else if (val == '12') {
-				this.networkTypeStr = '4G';
-			} else {
-				this.networkTypeStr = '5G';
-			}
+		networkType: {
+      handler (val) {
+        if (val == '11') {
+          this.networkTypeStr = '2G';
+        } else if (val == '12') {
+          this.networkTypeStr = '4G';
+        } else {
+          this.networkTypeStr = '5G';
+        }
+        console.log(this.networkTypeStr)
+      },
+      immediate: true
 		}
 		// 反向监听选中值的变化，赋值给上面
 		// checkKey(val) {

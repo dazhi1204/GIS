@@ -109,7 +109,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters(['cityId', 'checkedData', 'normName', 'networkType', 'status', 'timeTypeId', 'time', 'checkedDatas', 'setmodel'])
+		...mapGetters(['cityId', 'networkType', 'status', 'timeTypeId', 'time', 'setmodel'])
 	},
 	watch: {
 		time(val) {
@@ -134,9 +134,9 @@ export default {
 		}
 	},
 	methods: {
-		test() {
-			console.log(this.time);
-		},
+		// test() {
+		// 	console.log(this.time);
+		// },
 		initData() {
 			// let timeString = ''
 			// if (this.timeTypeId == 4 || this.timeTypeId == 3) {
@@ -215,7 +215,7 @@ export default {
 		// window.addEventListener('message',function(e){
 		//     console.log(e.origin)
 		//     console.log('-----')
-		//     // 得到用户名
+		//     // 得到用户名m
 		//     console.log(e.data.userName)
 		//     // 如果拿不到用户名，则跳转到网优登录页面
 		//     // if(!e.data.userName) {
@@ -226,9 +226,11 @@ export default {
 		// })
 		//  console.log(window.self === window.top, '----')
 		// 判断是不是从iframe 打开的，如果不是则跳转网优地址
+
 		// if(window.self === window.top) {
-		//   process.env.NODE_ENV === 'development' ? '' : window.location.href = 'http://10.12.70.72:59033/'
+		//   process.env.NODE_ENV === 'development' ? window.location.href = 'http://10.12.70.72:8580/' : window.location.href = 'http://10.12.70.72:8580/'
 		// }
+
 	},
 	destroyed() {
 		window.removeEventListener('message', function(e) {});

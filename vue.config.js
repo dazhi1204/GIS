@@ -20,9 +20,8 @@ module.exports = {
 		devServer: {
 			proxy: {
 				'/api': {
-					//target: 'http://10.12.70.72:8762', //深圳服务器
-					 target: 'http://222.128.2.151:8762',
-					//target: 'http://192.168.99.47:8762', //本地
+					target: 'http://10.12.70.72:8762', //深圳服务器
+					//target: 'http://222.128.2.151:8763/', 
 					changeOrigin: true, //是否跨域
 					pathRewrite: {
 						'^/api': '' //规定请求地址以什么作为开头

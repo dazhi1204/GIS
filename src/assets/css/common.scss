@@ -138,7 +138,8 @@
 }
 .el-scrollbar, .el-picker-panel,.el-dropdown-menu,.el-range-input,.el-date-editor {
   background: rgb(11,28,116) !important;
-  .el-select-dropdown__item, .el-date-table th,.el-date-picker__header-label,.available,.el-dropdown-menu__item,.time-select-item,.el-range-input {
+  .el-select-dropdown__item, .el-date-table th,.el-picker-panel__icon-btn,.el-date-picker__header-label,.available,.el-dropdown-menu__item,.time-select-item,.el-range-input {
+
     color: #fff !important;
   }
   .hover, .selected,.el-dropdown-menu__item:hover,.time-select-item:hover {
